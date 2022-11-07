@@ -70,7 +70,7 @@ public class LogoutAndDelete extends AppCompatActivity {
                                  Intent intent = new Intent(LogoutAndDelete.this, LoginActivity.class);
                                  startActivity(intent);
                                  finish();
-                                 Toast.makeText(LogoutAndDelete.this, "회원가입이 정상적으로 처리되었습니다.", Toast.LENGTH_SHORT).show();
+                                 Toast.makeText(LogoutAndDelete.this, "회원탈퇴가 정상적으로 처리되었습니다.", Toast.LENGTH_SHORT).show();
                              }
                          });
                      }

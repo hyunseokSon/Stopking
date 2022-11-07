@@ -1,9 +1,11 @@
 package com.sample.stopking_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,80 +26,74 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private static final String TAG = "REGISTER";
-
-    private FirebaseAuth mAuth;         // 파이어베이스 인증
     private EditText mEtEmail, mEtPwd, mEtName;  //회원가입 입력필드
     private FirebaseFirestore db = FirebaseFirestore.getInstance(); // 파이어스토어
     private Button mbtnRegister;        //회원가입 버튼
+    private Button mbtnBack;            // 뒤로가기 버튼
 
+    private CheckBox cDrink, cSmoke;    //금연, 금주 선택
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mAuth = FirebaseAuth.getInstance();
-
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_pwd);
         mbtnRegister = findViewById(R.id.btn_register);
-
         mEtName = findViewById(R.id.et_name);
+        mbtnBack = findViewById(R.id.btn_back);
+
+        cDrink = findViewById(R.id.check_drink);
+        cSmoke = findViewById(R.id.check_smoke);
+
+        mbtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //뒤로 가기 버튼이 눌렸을 때
+                Toast.makeText(RegisterActivity.this, "회원가입이 취소되었습니다.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
         mbtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //회원가입 처리 시작(기입한 회원 정보를 가져온다.)
-                String strEmail = mEtEmail.getText().toString();
-                String strPwd = mEtPwd.getText().toString();
+                if (cDrink.isChecked() && cSmoke.isChecked()) {
+                    // 금연, 금주 모두 체크한 경우
+                    Toast.makeText(RegisterActivity.this, "금연/금주 중 하나만 선택해주세요.", Toast.LENGTH_SHORT).show();
+                } else if ((!cDrink.isChecked()) && !(cSmoke.isChecked())) {
+                    // 금연, 금주 모두 체크하지 않은 경우
+                    Toast.makeText(RegisterActivity.this, "금연/금주 중 하나를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    // 금연, 금주 중 하나만 체크한 경우
+                    //회원가입 처리 시작(기입한 회원 정보를 가져온다.)
 
+                    String strEmail = mEtEmail.getText().toString();
+                    String strPwd = mEtPwd.getText().toString();
+                    String strName = mEtName.getText().toString();
 
-                //파이어베이스 인증 진행 및 신규 계정 등록하기.
-                mAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        // task는 회원가입의 결과를 return
-                        // 인증 처리가 완료되었을 때. 즉 가입 성공 시
-                        if (task.isSuccessful()) {
-                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                            String email = firebaseUser.getEmail();
-                            String uid = firebaseUser.getUid();
-                            String strName = mEtName.getText().toString();
-
-                            //추가내용
-                            //CollectionReference userList = db.collection("users");
-
-                            HashMap<Object, String> user = new HashMap<>();
-                            user.put("uid", uid);
-                            user.put("email", email);
-                            user.put("name", strName);
-                            //userList.document(email).set(user); // 이메일을 제목으로 하여 DB에 값을 저장
-
-                            //문서 추가
-                            db.collection("users")
-                                    .add(user)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Log.d(TAG, "Register successfully written!");
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Log.w(TAG, "Error writing document", e);
-                                        }
-                                    });
-                            Toast.makeText(RegisterActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } // 회원가입 성공.
-
-                        else { // 회원가입 실패한 경우우
-                           Toast.makeText(RegisterActivity.this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                        }
+                    //문서 저장한 후 금연/금주 파트에 맞게 액티비티 이동.
+                    if (cDrink.isChecked() && (!cSmoke.isChecked())) {
+                        // 금주 파트를 선택했을 때
+                        Intent intent = new Intent(RegisterActivity.this, RegisterDrink.class);
+                        intent.putExtra("email", strEmail); // email값 전달
+                        intent.putExtra("pwd", strPwd);     // password값 전달
+                        intent.putExtra("name", strName);   // name값 전달
+                        startActivity(intent);
+                        finish();
+                    } else if ((!cDrink.isChecked()) && cSmoke.isChecked()) {
+                        // 금연 파트를 선택했을 때
+                        Intent intent = new Intent(RegisterActivity.this, RegisterSmoke.class);
+                        intent.putExtra("email", strEmail); // email값 전달
+                        intent.putExtra("pwd", strPwd);     // password값 전달
+                        intent.putExtra("name", strName);   // name값 전달
+                        startActivity(intent);
+                        finish();
                     }
-                });
-            }
+                }
+        }
         });
     }
 }
