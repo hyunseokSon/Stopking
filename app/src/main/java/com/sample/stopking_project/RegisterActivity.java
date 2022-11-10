@@ -58,7 +58,22 @@ public class RegisterActivity extends AppCompatActivity {
         mbtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cDrink.isChecked() && cSmoke.isChecked()) {
+                if(mEtEmail.getText().toString().equals("") || mEtEmail.getText().toString() == null)
+                {
+                    //email 입력을 안 했을 경우.
+                    Toast.makeText(RegisterActivity.this, "이메일 주소를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else if(mEtPwd.getText().toString().equals("") || mEtPwd.getText().toString() == null)
+                {
+                    //비밀번호 입력을 안 했을 경우.
+                    Toast.makeText(RegisterActivity.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else if(mEtName.getText().toString().equals("") || mEtName.getText().toString() == null)
+                {
+                    //이름 입력을 안 했을 경우.
+                    Toast.makeText(RegisterActivity.this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else if (cDrink.isChecked() && cSmoke.isChecked()) {
                     // 금연, 금주 모두 체크한 경우
                     Toast.makeText(RegisterActivity.this, "금연/금주 중 하나만 선택해주세요.", Toast.LENGTH_SHORT).show();
                 } else if ((!cDrink.isChecked()) && !(cSmoke.isChecked())) {
@@ -93,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                         finish();
                     }
                 }
-        }
+            }
         });
     }
 }
