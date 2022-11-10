@@ -1,35 +1,22 @@
 package com.sample.stopking_project;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.auth.User;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -63,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private int user_stop_days; // 금주 일수
+    private Button settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+        settings = findViewById(R.id.btn_settings);
+
         Intent intent = getIntent(); //전달할 데이터를 받을 intent
         String getEmail = intent.getStringExtra("email");
 
@@ -122,6 +112,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // 통계 화면으로 이동
                 Intent intent = new Intent(MainActivity.this, Statistics.class);
+                startActivity(intent);
+            }
+        });
+
+        //설정 버튼 클릭 시
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //설정 화면으로 이동
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                intent.putExtra("email", getEmail); // email값 전달
                 startActivity(intent);
             }
         });
