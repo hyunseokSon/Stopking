@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/analytics-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/analytics.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/arrow_back_ios_new-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/arrow_back_ios_new.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/attach_money-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/attach_money.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/bulb.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/calendar_month-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/calendar_month.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/change_circle-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/change_circle.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/emoji_objects-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/favorite-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/favorite.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/groups-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/groups.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/hourglass_bottom-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/initialization-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/initialization.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/key-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/key.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/lock-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/lock.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/logout-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/logout.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/monitoring-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/monitoring.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/person_remove-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/person_remove.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/ranking_button" value="0.1" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/ranking_button.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/resetting-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/resetting.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_analytics.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_help.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_setting.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/settings-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/settings.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/star-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/star.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/trophy-48px.xml" value="0.2085" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/trophy.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/user.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_login.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_statistics.xml" value="0.27291666666666664" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

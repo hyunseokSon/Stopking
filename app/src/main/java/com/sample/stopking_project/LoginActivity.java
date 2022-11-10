@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                             // 이메일 값 intent로 전송하기 위해 저장
                             String putEmail = mEtEmail.getText().toString();
 
-                            Intent intent = new Intent(LoginActivity.this, LogoutAndDelete.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             // 이메일 값 intent로 전달
                             intent.putExtra("email", putEmail);
                             startActivity(intent);
