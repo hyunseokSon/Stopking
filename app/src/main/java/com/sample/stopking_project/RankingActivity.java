@@ -60,6 +60,25 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
         backButton = findViewById(R.id.btn_back);
         String[][] string_array = new String[110][3];
 
+        //현석 - 정렬 가능했던 코드 (name 는 내가 정렬하고자 하는 대상 필드를 의미)
+        //정렬해서 가져와보기
+//        CollectionReference citiesRef = db.collection("users");
+//        citiesRef.orderBy("name").limit(3)
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                Log.d("RANKING ACTIVITY", document.getId() + " => " + document.getData());
+//                                text.setText(document.getData());
+//                            }
+//                        } else {
+//                            Log.d("RANKING ACTIVITY", "Error getting documents: ", task.getException());
+//                        }
+//                    }
+//                });
+
         // 파이어베이스 자체 기능 사용해서 로그 찍어 본 부분입니다.
         // 지우셔도 무방합니다
         CollectionReference colRef = db.collection("users");

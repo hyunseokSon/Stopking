@@ -12,6 +12,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private int user_stop_bottles; // 몇 병 참았는지
     private Button settings;
     private String getName;
-
+    private String getEmail;
 
 
     public static Date convertStringtoDate(String Date){ // 데이터베이스에서 가져온 날짜 변환
@@ -63,9 +64,13 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         settings = findViewById(R.id.btn_settings);
 
-        Intent intent = getIntent(); //전달할 데이터를 받을 intent
-        String getEmail = intent.getStringExtra("email");
-
+        // 현재 로그인한 사용자 가져오기.
+        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbUser != null)
+        {
+            //로그인 한 사용자가 존재할 경우.
+            getEmail = fbUser.getEmail();
+        }
 
         // 금주 날짜 가져오기
         DocumentReference docRef = db.collection("users").document(getEmail);

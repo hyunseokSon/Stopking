@@ -145,6 +145,7 @@ public class RegisterSmoke extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         //사용자 정보 파이어베이스에 넣기 성공
                                         Toast.makeText(RegisterSmoke.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                                        mAuth.signOut();
                                         finish();
                                     }
                                 });
