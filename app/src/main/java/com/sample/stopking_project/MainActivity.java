@@ -25,6 +25,13 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private int user_stop_days; // 금주 일수
+    private int user_stop_bottles; // 몇 병 참았는지
+    private Button settings;
+    private String getName;
+
 
 
     public static Date convertStringtoDate(String Date){ // 데이터베이스에서 가져온 날짜 변환
@@ -47,10 +54,6 @@ public class MainActivity extends AppCompatActivity {
         return result_str;
     }
 
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private int user_stop_days; // 금주 일수
-    private Button settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent(); //전달할 데이터를 받을 intent
         String getEmail = intent.getStringExtra("email");
+
 
         // 금주 날짜 가져오기
         DocumentReference docRef = db.collection("users").document(getEmail);
@@ -85,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                getName = documentSnapshot.getString("name");
+            }
+        });
+
         docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() { // 절약 금액 계산을 위한 데이터 fetch
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -97,12 +108,28 @@ public class MainActivity extends AppCompatActivity {
                 String week_drink_str = documentSnapshot.getString("week_drink");
                 int week_drink_int = Integer.parseInt(week_drink_str);
                 String bank_info_text = caculateBank(average_drink_int,week_drink_int,user_stop_days);
+                user_stop_bottles = user_stop_days/7 * average_drink_int * week_drink_int;
                 bank_info.setText(bank_info_text + "원");
             }
         });
 
 
 
+        Button btn_ranking = findViewById(R.id.btn_ranking);
+        btn_ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 랭킹 화면으로 이동
+                Intent intent = new Intent(MainActivity.this, RankingActivity.class);
+                intent.putExtra("email", getEmail); // email값 전달
+                intent.putExtra("name",getName); // username 전달
+                String user_stop_days_str =String.valueOf(user_stop_days);
+                String user_stop_bottles_str = String.valueOf(user_stop_bottles);
+                intent.putExtra("day",user_stop_days_str); // 금주 일수 전달
+                intent.putExtra("bottle",user_stop_bottles_str); // 참은 병 전달
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -112,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // 통계 화면으로 이동
                 Intent intent = new Intent(MainActivity.this, Statistics.class);
+                intent.putExtra("email", getEmail); // email값 전달
                 startActivity(intent);
             }
         });

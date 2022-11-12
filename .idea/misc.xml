@@ -34,12 +34,16 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/person_remove.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/ranking_button" value="0.1" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/ranking_button.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/remove_btn_padding.xml" value="0.121" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/remove_btn_padding_active.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/resetting-48px.xml" value="0.2085" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/resetting.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu.xml" value="0.2085" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_analytics.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_help.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_ranking.xml" value="0.2085" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_menu_setting.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/round_user_image.xml" value="0.2085" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/settings-48px.xml" value="0.2085" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/settings.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/star-48px.xml" value="0.2085" />
@@ -49,7 +53,12 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/user.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_login.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_ranking.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_setting.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_statistics.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_fragment_bottle.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_fragment_day.xml" value="0.27291666666666664" />
       </map>
     </option>
   </component>
