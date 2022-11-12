@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private String getName;
     private String getEmail;
 
+    //test
+    private Button btn_test;
 
     public static Date convertStringtoDate(String Date){ // 데이터베이스에서 가져온 날짜 변환
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
@@ -71,6 +74,17 @@ public class MainActivity extends AppCompatActivity {
             //로그인 한 사용자가 존재할 경우.
             getEmail = fbUser.getEmail();
         }
+
+        btn_test = findViewById(R.id.button_test);
+
+        btn_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "버튼 눌렀노.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, DrinkFirebaseTest.class);
+                startActivity(intent);
+            }
+        });
 
         // 금주 날짜 가져오기
         DocumentReference docRef = db.collection("users").document(getEmail);
