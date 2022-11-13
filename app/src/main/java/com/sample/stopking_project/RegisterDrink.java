@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -74,6 +75,9 @@ public class RegisterDrink extends AppCompatActivity {
         mbtnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 회원 탈퇴하기
+                mAuth.getCurrentUser().delete();
+
                 finish();
                 Toast.makeText(RegisterDrink.this, "회원가입이 취소되었습니다.", Toast.LENGTH_SHORT).show();
             }
@@ -134,50 +138,45 @@ public class RegisterDrink extends AppCompatActivity {
                     String weekDrink = mEtWeekDrink.getText().toString();
                     String drinkBank = mEtDrinkBank.getText().toString();
 
-                    //파이어베이스 인증 진행 및 신규 계정 등록하기.
-                    mAuth.createUserWithEmailAndPassword(getEmail, getPwd).addOnCompleteListener(RegisterDrink.this, new OnCompleteListener<AuthResult>() {
+                    //파이어베이스 DB에 정보 저장
+                    FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                    String email = firebaseUser.getEmail();
+                    String uid = firebaseUser.getUid();
+
+                    HashMap<Object, String> user = new HashMap<>();
+                    user.put("uid", uid);
+                    user.put("email", email);
+                    user.put("name", getName);
+                    //금주 정보
+                    user.put("average_drink", avgDrink);
+                    user.put("week_drink", weekDrink);
+                    user.put("drink_bank", drinkBank);
+                    user.put("stop_drink", selectDate);
+                    //금연 정보
+                    user.put("week_smoke", null);
+                    user.put("start_smoke", null);
+                    user.put("smoke_bank", null);
+                    user.put("stop_smoke", null);
+
+                    //문서 추가
+                    db.collection("users").document(email).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            // task는 회원가입의 결과를 return
-                            // 인증 처리가 완료되었을 때. 즉 가입 성공 시
-                            if (task.isSuccessful()) {
-                                FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                                String email = firebaseUser.getEmail();
-                                String uid = firebaseUser.getUid();
-
-                                HashMap<Object, String> user = new HashMap<>();
-                                user.put("uid", uid);
-                                user.put("email", email);
-                                user.put("name", getName);
-                                //금주 정보
-                                user.put("average_drink", avgDrink);
-                                user.put("week_drink", weekDrink);
-                                user.put("drink_bank", drinkBank);
-                                user.put("stop_drink", selectDate);
-                                //금연 정보
-                                user.put("week_smoke", null);
-                                user.put("start_smoke", null);
-                                user.put("smoke_bank", null);
-                                user.put("stop_smoke", null);
-
-                                //문서 추가
-                                db.collection("users").document(email).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        //사용자 정보 파이어베이스에 넣기 성공
-                                        Toast.makeText(RegisterDrink.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                                        mAuth.signOut();
-                                        finish();
-                                    }
-                                });
-                            } // 회원가입 성공.
-                            else { // 회원가입 실패한 경우
-                                Toast.makeText(RegisterDrink.this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                            }
+                        public void onComplete(@NonNull Task<Void> task) {
+                            //사용자 정보 파이어베이스에 넣기 성공
+                            Toast.makeText(RegisterDrink.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                            mAuth.signOut();
+                            finish();
                         }
-                    });
-                }
+                    })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    //사용자 정보 파이어베이스에 넣기 실패 시
+                                    Toast.makeText(RegisterDrink.this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                } // 회원가입 성공.
             }
-        });
-    }
+    });
+}
 }
