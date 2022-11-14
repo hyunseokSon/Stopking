@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +33,8 @@ public class DrinkFirebaseTest extends AppCompatActivity {
     private CollectionReference dbReference;
     private String getEmail;
 
+    //뒤로가기
+    private ImageView backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,15 @@ public class DrinkFirebaseTest extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>(); // 사용자 정보 객체를 담을 arrayList (이후에 어댑터 쪽으로 전송함)
+
+        backBtn = findViewById(R.id.btn_back);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         // 현재 로그인한 사용자 가져오기.
         FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
