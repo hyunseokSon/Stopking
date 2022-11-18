@@ -14,7 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DrinkFirebaseData {
+public class DrinkDayFirebaseData {
     // 어떤 data를 가져올지 여기서 선택함.
     private String average_drink;
     private String drink_bank;
@@ -23,8 +23,9 @@ public class DrinkFirebaseData {
     private String week_drink;
     private String stop_drink;
     private String stop_drink_days;
+    private String week_bottle;
 
-    public DrinkFirebaseData() {}
+    public DrinkDayFirebaseData() {}
 
     public static Date convertStringtoDate(String Date){ // 데이터베이스에서 가져온 날짜 변환
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");

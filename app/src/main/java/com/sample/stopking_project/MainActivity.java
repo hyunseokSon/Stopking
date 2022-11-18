@@ -208,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
                 double week_drink_double = Double.parseDouble(week_drink_str);
                 double result = Math.round(getGoal_double / (average_drink_double * week_drink_double * 4500)) * 7;
                 int result_int = (int) result - user_stop_days;
-
                 String goal_text = String.valueOf(result_int);
                 bank_goal.setText("D-" + goal_text);
             }

@@ -9,18 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class DrinkRankingAdapter extends RecyclerView.Adapter<DrinkRankingAdapter.RankingViewHolder> {
+public class DrinkDayRankingAdapter extends RecyclerView.Adapter<DrinkDayRankingAdapter.RankingViewHolder> {
 
-    private static ArrayList<DrinkFirebaseData> arrayList;
+    private static ArrayList<DrinkDayFirebaseData> arrayList;
     private Context context;
     private int rank = 4;
 
-    public DrinkRankingAdapter(ArrayList<DrinkFirebaseData> arrayList, Context context) {
+    public DrinkDayRankingAdapter(ArrayList<DrinkDayFirebaseData> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -29,7 +26,7 @@ public class DrinkRankingAdapter extends RecyclerView.Adapter<DrinkRankingAdapte
     @Override
     public RankingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //실제 리스트뷰가 연결된 후 뷰 홀더를 최초로 만들어 냄.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_list_data, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drinking_day_user_list_data, parent, false);
         RankingViewHolder holder = new RankingViewHolder(view);
         return holder;
     }
@@ -58,9 +55,9 @@ public class DrinkRankingAdapter extends RecyclerView.Adapter<DrinkRankingAdapte
 
         public RankingViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.user_name = itemView.findViewById(R.id.ranking_user_name);
-            this.user_days = itemView.findViewById(R.id.ranking_user_days);
-            this.user_rank = itemView.findViewById(R.id.ranking_rank);
+            this.user_name = itemView.findViewById(R.id.drink_day_ranking_user_name);
+            this.user_days = itemView.findViewById(R.id.drink_ranking_user_days);
+            this.user_rank = itemView.findViewById(R.id.drink_day_ranking_rank);
         }
     }
 }

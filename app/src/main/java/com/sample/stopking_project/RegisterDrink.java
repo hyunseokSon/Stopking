@@ -137,6 +137,8 @@ public class RegisterDrink extends AppCompatActivity {
                     String avgDrink = mEtAvgDrink.getText().toString();
                     String weekDrink = mEtWeekDrink.getText().toString();
                     String drinkBank = mEtDrinkBank.getText().toString();
+                    // 일주일에 마시는 총 병수
+                    double weekBottle = Double.parseDouble(weekDrink) * Double.parseDouble(avgDrink);
 
                     //파이어베이스 DB에 정보 저장
                     FirebaseUser firebaseUser = mAuth.getCurrentUser();
@@ -144,6 +146,7 @@ public class RegisterDrink extends AppCompatActivity {
                     String uid = firebaseUser.getUid();
 
                     HashMap<Object, String> user = new HashMap<>();
+                    HashMap<Object, Number> user_num = new HashMap<>();
                     user.put("uid", uid);
                     user.put("email", email);
                     user.put("name", getName);
@@ -152,6 +155,7 @@ public class RegisterDrink extends AppCompatActivity {
                     user.put("week_drink", weekDrink);
                     user.put("drink_bank", drinkBank);
                     user.put("stop_drink", selectDate);
+                    user_num.put("week_bottle",(Number)weekBottle);
                     //금연 정보
                     user.put("week_smoke", null);
                     user.put("start_smoke", null);
