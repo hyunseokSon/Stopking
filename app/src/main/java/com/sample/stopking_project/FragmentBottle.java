@@ -105,6 +105,7 @@ public class FragmentBottle extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.drink_bottle_recyclerView);
         TextView my_ranking_rank = v.findViewById(R.id.drink_bottle_my_ranking_rank);
         TextView my_ranking_position = v.findViewById(R.id.drink_bottle_my_ranking_position);
+        TextView my_ranking_bottle = v.findViewById(R.id.drink_my_ranking_bottle);
 
 
         recyclerView.setHasFixedSize(true);
@@ -144,6 +145,7 @@ public class FragmentBottle extends Fragment {
                                     int my_rank=i+1;
                                     my_ranking_rank.setText(my_rank+"위");
                                     my_ranking_position.setText("평균 주량 : "+list.get(i).getAverage_drink()+"병");
+                                    my_ranking_bottle.setText(list.get(i).getBottles()+"병");
                                     break;
                                 }
                             }
@@ -185,9 +187,8 @@ public class FragmentBottle extends Fragment {
         }
 
         TextView my_ranking_name = v.findViewById(R.id.drink_bottle_my_ranking_name);
-        TextView my_ranking_bottle = v.findViewById(R.id.drink_my_ranking_bottle);
+
         my_ranking_name.setText(getName);
-        my_ranking_bottle.setText(getBottle + "병");
 
         // Inflate the layout for this fragment
         return v;
