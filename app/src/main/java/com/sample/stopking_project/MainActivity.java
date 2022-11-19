@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private String getEmail;
     private String getGoal;
     private String getRank;
+    private String bank_info_text;
     public int my_rank = 1;
 
 
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String week_drink_str = documentSnapshot.getString("week_drink");
                 int week_drink_int = Integer.parseInt(week_drink_str);
-                String bank_info_text = caculateBank(average_drink_int, week_drink_int, user_stop_days);
+                bank_info_text = caculateBank(average_drink_int, week_drink_int, user_stop_days);
                 user_stop_bottles = user_stop_days / 7 * average_drink_int * week_drink_int;
                 bank_info.setText(bank_info_text + "원");
             }
@@ -238,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                 // 통계 화면으로 이동
                 Intent intent = new Intent(MainActivity.this, Statistics.class);
                 intent.putExtra("email", getEmail); // email값 전달
+                intent.putExtra("saveMoney", bank_info_text);
                 startActivity(intent);
             }
         });
