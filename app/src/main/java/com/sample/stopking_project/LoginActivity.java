@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
+        //로그인이 되어있다면 해당 액티비티로 바로 이동한다.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser !=null){
         String getEmail = currentUser.getEmail();
