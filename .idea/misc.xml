@@ -57,14 +57,19 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/trophy_silver.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/user.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable/trophy_gold.xml" value="0.1" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_change_to_drink.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_change_to_smoke.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_drink_firebase_test.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_drink_main.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_login.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_logout_and_delete.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_ranking.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register_drink.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register_smoke.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_setting.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_smoke_main.xml" value="0.26927083333333335" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_statistics.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/drinking_bottle_user_list_data.xml" value="0.375" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/drinking_day_user_list_data.xml" value="0.125" />

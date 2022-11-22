@@ -63,6 +63,23 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".ChangeToSmoke"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".ChangeToDrink"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name=".LogoutAndDelete"
             android:exported="false">
@@ -78,7 +95,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Drink_MainActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Smoke_MainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

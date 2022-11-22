@@ -7,7 +7,7 @@
     android:background="#F8F8F8"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".MainActivity">
+    tools:context=".Drink_MainActivity">
 
 
     <!--메인 타이틀-->

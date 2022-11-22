@@ -7,9 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -31,14 +29,12 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.w3c.dom.Text;
-
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class Drink_MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -48,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private long documentCount;
     private Button settings;
     private String getName;
-    private String getEmail;
+    private String getEmail,getAverageDrink,getWeekDrink,getStopDrink;
     private String getGoal;
     private String getRank;
     private String bank_info_text;
@@ -80,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_drink_main);
         mAuth = FirebaseAuth.getInstance();
         settings = findViewById(R.id.btn_settings);
 
@@ -117,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 getName = documentSnapshot.getString("name");
+                getAverageDrink = documentSnapshot.getString("average_drink");
+                getWeekDrink = documentSnapshot.getString("week_drink");
+                getStopDrink = documentSnapshot.getString("stop_drink");
             }
         });
 
@@ -222,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
                     bank_goal_title.setText("목표 달성!");
                     bank_goal.setVisibility(View.GONE);
                     btn_bank_goal_reset.setVisibility(View.VISIBLE);
-                }
+                } // 랭킹에서 목표 금액 변경 후 재설정 필요
 
             }
         });
@@ -233,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 랭킹 화면으로 이동
-                Intent intent = new Intent(MainActivity.this, RankingActivity.class);
+                Intent intent = new Intent(Drink_MainActivity.this, RankingActivity.class);
                 intent.putExtra("email", getEmail); // email값 전달
                 intent.putExtra("name", getName); // username 전달
                 String user_stop_days_str = String.valueOf(user_stop_days);
@@ -248,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 통계 화면으로 이동
-                Intent intent = new Intent(MainActivity.this, Statistics.class);
+                Intent intent = new Intent(Drink_MainActivity.this, Statistics.class);
                 intent.putExtra("email", getEmail); // email값 전달
                 intent.putExtra("saveMoney", bank_info_text);
                 startActivity(intent);
@@ -261,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 통계 화면으로 이동
-                Intent intent = new Intent(MainActivity.this, Statistics.class);
+                Intent intent = new Intent(Drink_MainActivity.this, Statistics.class);
                 intent.putExtra("email", getEmail); // email값 전달
                 intent.putExtra("saveMoney", bank_info_text);
                 startActivity(intent);
@@ -273,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //설정 화면으로 이동
-                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                Intent intent = new Intent(Drink_MainActivity.this, SettingActivity.class);
                 intent.putExtra("email", getEmail); // email값 전달
                 startActivity(intent);
             }
