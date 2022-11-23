@@ -1,12 +1,9 @@
 package com.sample.stopking_project;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -17,12 +14,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
-public class RankingActivity extends AppCompatActivity implements View.OnClickListener {
+public class Smoke_RankingActivity extends AppCompatActivity implements View.OnClickListener {
 
 
 
     private final int FRAGMENT_DAY = 1;
-    private final int FRAGMENT_BOTTLE = 2;
+    private final int FRAGMENT_PACK = 2;
     private ImageView backButton;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance(); // 파이어스토어
@@ -30,10 +27,10 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
     private String my_ranking_name;
     private String getName;
     private String getDay;
-    private String getBottle;
-    private Button btn_stop_drink_day, btn_stop_drink_bottle;
+    private String getPack;
+    private Button btn_stop_smoke_day, btn_stop_smoke_pack;
     boolean btn_day_active = true;
-    boolean btn_bottle_active = false;
+    boolean btn_pack_active = false;
 
 
 
@@ -43,34 +40,31 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ranking);
-
-
+        setContentView(R.layout.activity_smoke_ranking);
 
 
         mAuth = FirebaseAuth.getInstance();
         backButton = findViewById(R.id.btn_back);
-        String[][] string_array = new String[110][3];
 
 
         Intent intent = getIntent(); //전달할 데이터를 받을 intent
         getEmail = intent.getStringExtra("email");
         getName = intent.getStringExtra("name");
         getDay = intent.getStringExtra("day");
-        getBottle = intent.getStringExtra("bottle");
+        getPack = intent.getStringExtra("pack");
 
 
         Bundle bundle = new Bundle(); // 프라그먼트에 넘겨줄 정보들
         bundle.putString("email", getEmail);
         bundle.putString("name", getName);
         bundle.putString("day", getDay);
-        bundle.putString("bottle", getBottle);
+        bundle.putString("pack", getPack);
 
-        btn_stop_drink_day = (Button) findViewById(R.id.btn_stop_drink_day);
-        btn_stop_drink_bottle = (Button) findViewById(R.id.btn_stop_drink_bottle);
+        btn_stop_smoke_day = (Button) findViewById(R.id.btn_stop_smoke_day);
+        btn_stop_smoke_pack = (Button) findViewById(R.id.btn_stop_smoke_pack);
 
-        btn_stop_drink_day.setOnClickListener(this);
-        btn_stop_drink_bottle.setOnClickListener(this);
+        btn_stop_smoke_day.setOnClickListener(this);
+        btn_stop_smoke_pack.setOnClickListener(this);
         callFragment(FRAGMENT_DAY, bundle);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +74,6 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
             }
         });
-
-
     }
 
 
@@ -92,30 +84,30 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
         bundle.putString("email", getEmail);
         bundle.putString("name", getName);
         bundle.putString("day", getDay);
-        bundle.putString("bottle", getBottle);
+        bundle.putString("pack", getPack);
 
         switch (v.getId()) {
-            case R.id.btn_stop_drink_day:
+            case R.id.btn_stop_smoke_day:
                 // '버튼DAY' 클릭 시 '프래그먼트DAY' 호출 및 버튼 색 변경
 
 
                 callFragment(FRAGMENT_DAY, bundle);
-                if (btn_bottle_active) {
-                    btn_stop_drink_day.setBackgroundResource(R.drawable.remove_btn_padding_active);
-                    btn_stop_drink_bottle.setBackgroundResource(R.drawable.remove_btn_padding);
-                    btn_bottle_active = false;
+                if (btn_pack_active) {
+                    btn_stop_smoke_day.setBackgroundResource(R.drawable.remove_btn_padding_active);
+                    btn_stop_smoke_pack.setBackgroundResource(R.drawable.remove_btn_padding);
+                    btn_pack_active = false;
                     btn_day_active = true;
                 }
                 break;
 
-            case R.id.btn_stop_drink_bottle:
-                // '버튼BOTTLE' 클릭 시 '프래그먼트BOTTLE' 호출 및 버튼 색 변경
-                callFragment(FRAGMENT_BOTTLE, bundle);
+            case R.id.btn_stop_smoke_pack:
+                // '버튼PACK' 클릭 시 '프래그먼트PACK' 호출 및 버튼 색 변경
+                callFragment(FRAGMENT_PACK, bundle);
                 if (btn_day_active) {
-                    btn_stop_drink_day.setBackgroundResource(R.drawable.remove_btn_padding);
-                    btn_stop_drink_bottle.setBackgroundResource(R.drawable.remove_btn_padding_active);
+                    btn_stop_smoke_day.setBackgroundResource(R.drawable.remove_btn_padding);
+                    btn_stop_smoke_pack.setBackgroundResource(R.drawable.remove_btn_padding_active);
                     btn_day_active = false;
-                    btn_bottle_active = true;
+                    btn_pack_active = true;
                 }
                 break;
         }
@@ -131,17 +123,17 @@ public class RankingActivity extends AppCompatActivity implements View.OnClickLi
             case 1:
                 // '프래그먼트1' 호출
 
-                FragmentDay fragmentDay = new FragmentDay();
+                Smoke_FragmentDay fragmentDay = new Smoke_FragmentDay();
                 fragmentDay.setArguments(bundle);
-                fragmentTransaction.replace(R.id.fragment_container, fragmentDay);
+                fragmentTransaction.replace(R.id.smoke_fragment_container, fragmentDay);
                 fragmentTransaction.commit();
                 break;
 
             case 2:
                 // '프래그먼트2' 호출
-                FragmentBottle fragmentBottle = new FragmentBottle();
-                fragmentBottle.setArguments(bundle);
-                fragmentTransaction.replace(R.id.fragment_container, fragmentBottle);
+                Smoke_FragmentPack fragmentPack = new Smoke_FragmentPack();
+                fragmentPack.setArguments(bundle);
+                fragmentTransaction.replace(R.id.smoke_fragment_container, fragmentPack);
                 fragmentTransaction.commit();
                 break;
         }

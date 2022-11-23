@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RankingActivity">
+    tools:context=".Smoke_RankingActivity">
 
 
     <ScrollView
@@ -19,7 +19,7 @@
 
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/fragment_container"
+        android:id="@+id/smoke_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/linearLayout" />
@@ -64,7 +64,7 @@
         android:weightSum="2"
         >
         <Button
-            android:id="@+id/btn_stop_drink_day"
+            android:id="@+id/btn_stop_smoke_day"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -81,7 +81,7 @@
             ></View>
 
         <Button
-            android:id="@+id/btn_stop_drink_bottle"
+            android:id="@+id/btn_stop_smoke_pack"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -89,7 +89,7 @@
             android:minWidth="0dp"
             android:background="@drawable/remove_btn_padding"
             android:state_pressed="false"
-            android:text="Bottle"
+            android:text="Pack"
             ></Button>
 
 

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentBottle">
+    tools:context=".Smoke_RankingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/drink_bottle_my_ranking_title"
+            android:id="@+id/smoke_pack_my_ranking_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -35,7 +35,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/drink_bottle_my_ranking_name"
+                android:id="@+id/smoke_pack_my_ranking_name"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -62,7 +62,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/drink_my_ranking_bottle"
+                        android:id="@+id/smoke_my_ranking_pack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -76,7 +76,7 @@
                         android:textSize="20dp"></TextView>
 
                     <TextView
-                        android:id="@+id/drink_bottle_my_ranking_rank"
+                        android:id="@+id/smoke_pack_my_ranking_rank"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
@@ -86,7 +86,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/drink_bottle_my_ranking_position"
+                    android:id="@+id/smoke_pack_my_ranking_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -97,7 +97,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/drink_bottle_my_ranking_img"
+                android:id="@+id/smoke_pack_my_ranking_img"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -146,7 +146,7 @@
                     android:src="@drawable/trophy_gold"></ImageView>
 
                 <TextView
-                    android:id="@+id/drink_bottle_first_ranking_name"
+                    android:id="@+id/smoke_pack_first_ranking_name"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -167,14 +167,14 @@
                     >
 
                 <LinearLayout
-                    android:id="@+id/drink_bottle_first_info"
+                    android:id="@+id/smoke_pack_first_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right|center_vertical"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/drink_first_ranking_bottle"
+                        android:id="@+id/smoke_first_ranking_pack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="123병"
@@ -189,7 +189,7 @@
                         android:textSize="24dp"></TextView>
 
                     <TextView
-                        android:id="@+id/drink_bottle_first_ranking_rank"
+                        android:id="@+id/smoke_pack_first_ranking_rank"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1위"
@@ -208,11 +208,11 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
-                    android:layout_alignRight="@+id/drink_bottle_first_info"
-                    android:layout_below="@+id/drink_bottle_first_info"
+                    android:layout_alignRight="@+id/smoke_pack_first_info"
+                    android:layout_below="@+id/smoke_pack_first_info"
                     >
                     <TextView
-                        android:id="@+id/drink_first_average_drink"
+                        android:id="@+id/smoke_first_week_smoke"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="몇병"
@@ -246,7 +246,7 @@
                     android:src="@drawable/trophy_silver"></ImageView>
 
                 <TextView
-                    android:id="@+id/drink_bottle_second_ranking_name"
+                    android:id="@+id/smoke_pack_second_ranking_name"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -266,14 +266,14 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/drink_bottle_second_info"
+                        android:id="@+id/smoke_pack_second_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right|center_vertical"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/drink_second_ranking_bottle"
+                            android:id="@+id/smoke_second_ranking_pack"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="123병"
@@ -288,7 +288,7 @@
                             android:textSize="24dp"></TextView>
 
                         <TextView
-                            android:id="@+id/drink_bottle_second_ranking_rank"
+                            android:id="@+id/smoke_pack_second_ranking_rank"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2위"
@@ -307,11 +307,11 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:orientation="vertical"
-                        android:layout_alignRight="@+id/drink_bottle_second_info"
-                        android:layout_below="@+id/drink_bottle_second_info"
+                        android:layout_alignRight="@+id/smoke_pack_second_info"
+                        android:layout_below="@+id/smoke_pack_second_info"
                         >
                         <TextView
-                            android:id="@+id/drink_second_average_drink"
+                            android:id="@+id/smoke_second_week_smoke"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="몇병"
@@ -343,7 +343,7 @@
                     android:src="@drawable/trophy_bronze"></ImageView>
 
                 <TextView
-                    android:id="@+id/drink_bottle_third_ranking_name"
+                    android:id="@+id/smoke_pack_third_ranking_name"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -363,14 +363,14 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/drink_bottle_third_info"
+                        android:id="@+id/smoke_pack_third_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right|center_vertical"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/drink_third_ranking_bottle"
+                            android:id="@+id/smoke_third_ranking_pack"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="123병"
@@ -385,7 +385,7 @@
                             android:textSize="24dp"></TextView>
 
                         <TextView
-                            android:id="@+id/drink_bottle_third_ranking_rank"
+                            android:id="@+id/smoke_pack_third_ranking_rank"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3위"
@@ -404,11 +404,11 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:orientation="vertical"
-                        android:layout_alignRight="@+id/drink_bottle_third_info"
-                        android:layout_below="@+id/drink_bottle_third_info"
+                        android:layout_alignRight="@+id/smoke_pack_third_info"
+                        android:layout_below="@+id/smoke_pack_third_info"
                         >
                         <TextView
-                            android:id="@+id/drink_third_average_drink"
+                            android:id="@+id/smoke_third_week_smoke"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="몇병"
@@ -434,7 +434,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/drink_bottle_recyclerView"
+            android:id="@+id/smoke_pack_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/background_light"

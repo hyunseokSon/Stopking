@@ -31,7 +31,7 @@ import java.util.Date;
 
 
 
-public  class FragmentDay extends Fragment {
+public  class Drink_FragmentDay extends Fragment {
     private String getEmail;
     private String getName;
     private String getDay;
@@ -43,7 +43,7 @@ public  class FragmentDay extends Fragment {
     private int count = 0;
 
 
-    public FragmentDay() {
+    public Drink_FragmentDay() {
         // Required empty public constructor
     }
 
@@ -81,7 +81,7 @@ public  class FragmentDay extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_fragment_day, container, false);
+        View v = inflater.inflate(R.layout.fragment_drink_day, container, false);
 
         recyclerView = (RecyclerView) v.findViewById(R.id.drink_day_recyclerView);
         TextView my_ranking_rank = v.findViewById(R.id.drink_my_day_ranking_rank);
@@ -101,6 +101,7 @@ public  class FragmentDay extends Fragment {
 
         // 나의 랭킹 찾기, 데이터를 모두 가져옴
         dbReference.orderBy("stop_drink")
+                .whereNotEqualTo("stop_drink",null)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -141,6 +142,7 @@ public  class FragmentDay extends Fragment {
 
         // 1,2,3등 데이터 설정
         dbReference.orderBy("stop_drink")
+                .whereNotEqualTo("stop_drink",null)
                 .limit(100)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -183,6 +185,7 @@ public  class FragmentDay extends Fragment {
 
         // recyclerView에 넣을 나머지 데이터 fetch
         dbReference.orderBy("stop_drink")
+                .whereNotEqualTo("stop_drink",null)
                 .limit(100)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
