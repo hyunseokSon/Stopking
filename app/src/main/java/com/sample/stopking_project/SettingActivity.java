@@ -25,11 +25,11 @@ import com.google.firebase.firestore.WriteBatch;
 import java.util.List;
 
 public class SettingActivity extends AppCompatActivity {
+
     private ImageView backButton;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance(); // 파이어스토어
     private String getEmail;
-    private String getPwd, getName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,6 @@ public class SettingActivity extends AppCompatActivity {
 
         Intent intent = getIntent(); //전달할 데이터를 받을 intent
         getEmail = intent.getStringExtra("email");
-        getName = intent.getStringExtra("name");
 
         // 뒤로 가기 버튼
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -92,9 +91,6 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
     // 금연 / 금주 초기화 클릭 시 처리 함수
     public void initializeMenu(View v) {
 
