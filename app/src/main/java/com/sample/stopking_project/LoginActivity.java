@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) { // 로그인이 성공적으로 이루어졌다면 ..
                                 // TODO: 정보에 따라 처음 메인액티비티 띄우기
-                                    Intent intent = new Intent(LoginActivity.this, Drink_MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, LoadingActivity.class);
                                     startActivity(intent);
                                     finish(); // 현재 액티비티 파괴
                                     Toast.makeText(LoginActivity.this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();

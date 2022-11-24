@@ -49,6 +49,7 @@ public class MyInfoActivity extends AppCompatActivity {
     private String str_startToStopDrink;
     private String str_weekDrink;
     private String str_drinkBank;
+    private String str_day;
 
     //금주 일수와 참은 병의 개수 따로 추가해야 함.
 
@@ -62,6 +63,10 @@ public class MyInfoActivity extends AppCompatActivity {
     //참은 날짜, 참은 병/갑 개수를 위한 변수
     private int stop_drinkDay; //금주 참은 날짜
     private int stop_smokeDay; //금연 참은 날짜
+    private int bottles;
+    private int average_drink_int;
+    private int week_drink_int;
+
     private double drinkFrequecny,bottleTotal;
 
 
@@ -153,6 +158,9 @@ public class MyInfoActivity extends AppCompatActivity {
                 //한 번 마실 때 먹는 술의 양
                 str_avg_drink = documentSnapshot.getString("average_drink");
                 if (str_avg_drink != null) {
+                    //내가 참은 병 개수
+                    bottles = Integer.parseInt(str_avg_drink);
+                    // 일주일 간 마시는 병 출력
                     avgDrink.setText(str_avg_drink + " 병");
                     avgDrink.setTypeface(null, Typeface.BOLD);
                     avgDrink.setTextColor(Color.BLACK);
@@ -176,36 +184,44 @@ public class MyInfoActivity extends AppCompatActivity {
 
                 //금주 일수, 참은 병의 개수는 Intent로 값 받아오기.
                 String drink_day_info_text = documentSnapshot.getString(("stop_drink"));
-                Date date = convertStringtoDate(drink_day_info_text);
-                Date startDateValue = date;
-                Date now = new Date();
-                long diff = now.getTime() - startDateValue.getTime();
-                long seconds = diff / 1000;
-                long minutes = seconds / 60;
-                long hours = minutes / 60;
-                long days = (hours / 24) + 1;
-                String d = String.valueOf(days);
-                stop_drinkDay = Integer.parseInt(d);
-                dayStopDrink.setText(d+"일");
-                dayStopDrink.setTypeface(null, Typeface.BOLD);
-                dayStopDrink.setTextColor(Color.BLACK);
+                if (drink_day_info_text != null) {
+                    Date date = convertStringtoDate(drink_day_info_text);
+                    Date startDateValue = date;
+                    Date now = new Date();
+                    long diff = now.getTime() - startDateValue.getTime();
+                    long seconds = diff / 1000;
+                    long minutes = seconds / 60;
+                    long hours = minutes / 60;
+                    long days = (hours / 24) + 1;
+                    str_day = String.valueOf(days);
+                    stop_drinkDay = Integer.parseInt(str_day);
+                    dayStopDrink.setText(str_day + "일");
+                    dayStopDrink.setTypeface(null, Typeface.BOLD);
+                    dayStopDrink.setTextColor(Color.BLACK);
+                }
 
                 // 금주 저금통 목표액
                 str_drinkBank = documentSnapshot.getString("drink_bank");
-                int average_drink_int = Integer.parseInt(str_avg_drink);
-                int week_drink_int = Integer.parseInt(str_weekDrink);
-                str_drinkBank = caculateBank(average_drink_int, week_drink_int, stop_drinkDay);
-                drinkBank.setText(str_drinkBank + "원");
-                drinkBank.setTypeface(null, Typeface.BOLD);
-                drinkBank.setTextColor(Color.BLACK);
+                if (str_drinkBank != null)
+                {
+                    average_drink_int = Integer.parseInt(str_avg_drink);
+                    week_drink_int = Integer.parseInt(str_weekDrink);
+                    str_drinkBank = caculateBank(average_drink_int, week_drink_int, stop_drinkDay);
+                    drinkBank.setText(str_drinkBank + "원");
+                    drinkBank.setTypeface(null, Typeface.BOLD);
+                    drinkBank.setTextColor(Color.BLACK);
+                }
 
-                //내가 참은 병 개수
-                int bottles = Integer.parseInt(str_avg_drink);
-                int weekDrink = Integer.parseInt(str_weekDrink);
-                double stopDays = Double.parseDouble(d);
-                drinkFrequecny = ((stopDays / 7) * weekDrink);
-                bottleTotal = drinkFrequecny*bottles;
-                countBottle.setText(String.format("%.1f", bottleTotal) + " 병");
+
+                if ((bottles != 0) && (week_drink_int != 0))
+                {
+                    double stopDays = Double.parseDouble(str_day);
+                    drinkFrequecny = ((stopDays / 7) * week_drink_int);
+                    bottleTotal = drinkFrequecny*bottles;
+                    countBottle.setText(String.format("%.1f", bottleTotal) + " 병");
+                    countBottle.setTypeface(null, Typeface.BOLD);
+                    countBottle.setTextColor(Color.BLACK);
+                }
 
                 //금연 정보 받아옴.
 
@@ -235,30 +251,38 @@ public class MyInfoActivity extends AppCompatActivity {
 
                 // 금연 일수
                 String smoke_day_info_text = documentSnapshot.getString(("stop_smoke"));
-                Date smoke_date = convertStringtoDate(smoke_day_info_text);
-                Date smokeStartDateValue = smoke_date;
-                Date smoke_now = new Date();
-                long differ = smoke_now.getTime() - smokeStartDateValue.getTime();
-                long second = differ / 1000;
-                long minute = second / 60;
-                long hour = minute / 60;
-                long day = (hour / 24) + 1;
-                String smoke_day = String.valueOf(day);
-                stop_smokeDay = Integer.parseInt(smoke_day);
-                dayStopSmoke.setText(smoke_day+"일");
-                dayStopSmoke.setTypeface(null, Typeface.BOLD);
-                dayStopSmoke.setTextColor(Color.BLACK);
+                if (smoke_day_info_text != null)
+                {
+                    Date smoke_date = convertStringtoDate(smoke_day_info_text);
+                    Date smokeStartDateValue = smoke_date;
+                    Date smoke_now = new Date();
+                    long differ = smoke_now.getTime() - smokeStartDateValue.getTime();
+                    long second = differ / 1000;
+                    long minute = second / 60;
+                    long hour = minute / 60;
+                    long day = (hour / 24) + 1;
+                    String smoke_day = String.valueOf(day);
+                    stop_smokeDay = Integer.parseInt(smoke_day);
+                    dayStopSmoke.setText(smoke_day+"일");
+                    dayStopSmoke.setTypeface(null, Typeface.BOLD);
+                    dayStopSmoke.setTextColor(Color.BLACK);
+                }
+
 
                 //금연 저금통
                 String week_smoke_str = documentSnapshot.getString("week_smoke");
-                int week_smoke_int = Integer.parseInt(week_smoke_str);
+                if (week_smoke_str != null)
+                {
+                    int week_smoke_int = Integer.parseInt(week_smoke_str);
 
-                str_smokeBank = caculateSmokeBank(week_smoke_int, stop_smokeDay);
-                smokeBank.setText(str_smokeBank + "원");
-                smokeBank.setTypeface(null, Typeface.BOLD);
-                smokeBank.setTextColor(Color.BLACK);
+                    str_smokeBank = caculateSmokeBank(week_smoke_int, stop_smokeDay);
+                    smokeBank.setText(str_smokeBank + "원");
+                    smokeBank.setTypeface(null, Typeface.BOLD);
+                    smokeBank.setTextColor(Color.BLACK);
+                }
 
-                //내가 참은 갑 개수
+
+                //내가 참은 갑 개수는 구현 예정.
 
             }
         });
