@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class alert_scaner {
+public class Drink_Alert_Scanner {
 
     private Context context;
     private String text;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String getEmail;
 
-    public alert_scaner(Statistics context, String text, String getEmail) {
+    public Drink_Alert_Scanner(Drink_Statistics context, String text, String getEmail) {
         this.context = context;
         this.text = text;
         this.getEmail = getEmail;
