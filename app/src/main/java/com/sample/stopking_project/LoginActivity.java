@@ -92,28 +92,31 @@ public class LoginActivity extends AppCompatActivity {
         //로그인이 되어있다면 해당 액티비티로 바로 이동한다.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser !=null){
-        String getEmail = currentUser.getEmail();
-        DocumentReference docRef = db.collection("users").document(getEmail);
-        docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                if (documentSnapshot.getString("flag").compareTo("drink") == 0) {
-                    //로그인 상태가 되어있다면 금주 메인 액티비티로 이동.
-                    Intent intent = new Intent(LoginActivity.this, Drink_MainActivity.class);
-                    startActivity(intent);
-                    finish(); // 현재 액티비티 파괴
-                    Toast.makeText(LoginActivity.this, "기존 계정으로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
-                }
-                else if (documentSnapshot.getString("flag").compareTo("smoke") == 0){
-                    // 금연 액티비티로 이동
-                    Intent intent = new Intent(LoginActivity.this, Smoke_MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(LoginActivity.this, "기존 계정으로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+            Intent intent = new Intent(LoginActivity.this, LoadingActivity.class);
+            startActivity(intent);
+            finish(); // 현재 액티비티 파괴
+//        String getEmail = currentUser.getEmail();
+//        DocumentReference docRef = db.collection("users").document(getEmail);
+//        docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+//            @RequiresApi(api = Build.VERSION_CODES.O)
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+//                if (documentSnapshot.getString("flag").compareTo("drink") == 0) {
+//                    //로그인 상태가 되어있다면 금주 메인 액티비티로 이동.
+//                    Intent intent = new Intent(LoginActivity.this, Drink_MainActivity.class);
+//                    startActivity(intent);
+//                    finish(); // 현재 액티비티 파괴
+//                    Toast.makeText(LoginActivity.this, "기존 계정으로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
+//                }
+//                else if (documentSnapshot.getString("flag").compareTo("smoke") == 0){
+//                    // 금연 액티비티로 이동
+//                    Intent intent = new Intent(LoginActivity.this, Smoke_MainActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                    Toast.makeText(LoginActivity.this, "기존 계정으로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
         }
     }
 }

@@ -44,7 +44,6 @@ public class LoadingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-
         iv_drink = findViewById(R.id.drink_gif);
         iv_smoke = findViewById(R.id.smoke_gif);
         text = findViewById(R.id.tv_text);
@@ -60,23 +59,42 @@ public class LoadingActivity extends AppCompatActivity {
 
         //무작위 난수 추출 코드 삽입하여야 함.
         random = (int)(Math.random() * 23 + 1);
+        Log.d("MYTAG", "random : "+random);
         ran_str = Integer.toString(random);
+        Log.d("MYTAG", "random string : "+ran_str);
 
         //금주 명언
         DocumentReference doc = db.collection("stop").document(drink);
         doc.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                //랜덤한 필드값의 문자열을 가져온다.
                 stop_drink  = value.getString(ran_str);
             }
         });
 
         //금언 명언
-        DocumentReference docRef = db.collection("stop").document(smoke);
+        DocumentReference docu = db.collection("stop").document(smoke);
+        docu.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                //랜덤한 필드값의 문자열을 가져온다.
+                stop_smoke  = value.getString(ran_str);
+            }
+        });
+
+        DocumentReference docRef = db.collection("users").document(userEmail);
         docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                stop_smoke  = value.getString(ran_str);
+                if (value.getString("flag").compareTo(drink) == 0) {
+                    text.setText(stop_drink);
+                    flag=0;
+                }
+                else if (value.getString("flag").compareTo(smoke) == 0){
+                    text.setText(stop_smoke);
+                    flag=1;
+                }
             }
         });
 
@@ -86,27 +104,11 @@ public class LoadingActivity extends AppCompatActivity {
 
     private void loadingStart() {
         Handler handler = new Handler();
-        DocumentReference docRef = db.collection("users").document(userEmail);
-        docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (value.getString("flag").compareTo(drink) == 0) {
-                    flag=0;
-                    text.setText(stop_drink);
-                }
-                else if (value.getString("flag").compareTo(smoke) == 0){
-                    flag=1;
-                    text.setText(stop_smoke);
-                }
-            }
-        });
-
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (flag == 0)
                 {
-                    Log.d("MYTAG", "Drink flag : " + flag);
                     Intent intent = new Intent(LoadingActivity.this, Drink_MainActivity.class);
                     startActivity(intent);
                     finish(); // 현재 액티비티 파괴
@@ -114,7 +116,6 @@ public class LoadingActivity extends AppCompatActivity {
                 }
                 else if (flag==1)
                 {
-                    Log.d("MYTAG", "Smoke flag : " + flag);
                     Intent intent = new Intent(LoadingActivity.this, Smoke_MainActivity.class);
                     startActivity(intent);
                     finish();
