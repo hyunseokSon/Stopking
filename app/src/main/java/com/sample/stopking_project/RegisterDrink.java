@@ -118,7 +118,7 @@ public class RegisterDrink extends AppCompatActivity {
                 else if (mEtWeekDrink.getText().toString().equals("") || mEtWeekDrink.getText().toString() == null) {
                     //일주일 당 술 횟수 입력을 안 했을 경우.
                     Toast.makeText(RegisterDrink.this, "2번 항목을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                } else if ((Integer.parseInt(mEtWeekDrink.getText().toString())<=0) || (Integer.parseInt(mEtWeekDrink.getText().toString())>=8)){
+                } else if ((Integer.parseInt(mEtWeekDrink.getText().toString())<1) || (Integer.parseInt(mEtWeekDrink.getText().toString())>7)){
                     //2번 항목에서 1~7사이의 값을 입력하지 않았을 경우
                     Toast.makeText(RegisterDrink.this, "2번 항목에서 1~7 사이의 값을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }else if (mEtDrinkBank.getText().toString().equals("") || mEtDrinkBank.getText().toString() == null) {
