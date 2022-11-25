@@ -39,7 +39,6 @@ public class Drink_RankingActivity extends AppCompatActivity implements View.OnC
 
         mAuth = FirebaseAuth.getInstance();
         backButton = findViewById(R.id.btn_back);
-        String[][] string_array = new String[110][3];
 
         Intent intent = getIntent(); //전달할 데이터를 받을 intent
         getEmail = intent.getStringExtra("email");

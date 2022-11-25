@@ -76,10 +76,11 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_statistics.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/drinking_bottle_user_list_data.xml" value="0.375" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/drinking_day_user_list_data.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_drink_bottle.xml" value="0.12760416666666666" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_fragment_bottle.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_fragment_day.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_bottle.xml" value="0.26927083333333335" />
-        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_day.xml" value="0.26927083333333335" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_day.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_pack.xml" value="0.26927083333333335" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/smoking_day_user_list_data.xml" value="0.26927083333333335" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/smoking_pack_user_list_data.xml" value="0.26927083333333335" />
