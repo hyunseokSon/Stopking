@@ -92,6 +92,12 @@ public class RegisterDrinkEmail extends AppCompatActivity {
                             {
                                 //회원가입 성공
                                 firebaseUser = mAuth.getCurrentUser();
+                                mAuth.signOut();
+
+                                //로그인부터 액티비티 초기화 후 다시 시작
+                                Intent intent = new Intent(RegisterDrinkEmail.this, LoginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
                             }
                             else { // 회원가입 실패한 경우
                                 Toast.makeText(RegisterDrinkEmail.this, "다른 아이디로 회원가입을 진행해주세요.", Toast.LENGTH_SHORT).show();
@@ -121,12 +127,6 @@ public class RegisterDrinkEmail extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     //사용자 정보 파이어베이스에 넣기 성공
                                     Toast.makeText(RegisterDrinkEmail.this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                                    mAuth.signOut();
-
-                                    //로그인부터 액티비티 초기화 후 다시 시작
-                                    Intent intent = new Intent(RegisterDrinkEmail.this, LoginActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
