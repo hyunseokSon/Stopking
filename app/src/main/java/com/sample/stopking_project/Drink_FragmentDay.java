@@ -82,7 +82,6 @@ public  class Drink_FragmentDay extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_drink_day, container, false);
-        v.setBackgroundResource(R.drawable.rankingbackground);
 
         recyclerView = (RecyclerView) v.findViewById(R.id.drink_day_recyclerView);
         TextView my_ranking_rank = v.findViewById(R.id.drink_my_day_ranking_rank);
