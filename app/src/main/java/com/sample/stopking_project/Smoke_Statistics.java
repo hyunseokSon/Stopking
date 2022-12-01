@@ -121,7 +121,7 @@ public class Smoke_Statistics extends AppCompatActivity implements ToolTipsManag
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
 
                 dayTitle.setText(str_StopDays + "일 동안,");
-                smokeFrequencyTitle.setText(Math.round(smokeFrequency) + " 번의 흡연를 쉬었습니다.");
+                smokeFrequencyTitle.setText(Math.round(smokeFrequency) + " 번의 흡연을 쉬었습니다.");
                 countPackTitle.setText("약 "+Math.round(pack) + " 갑을 피우지 않았습니다.");
                 saveTimeTitle.setText(Math.round(saveTime) + " 분을 아꼈습니다.");
                 saveMoneyTitle.setText(str_getSaveMoney + " 원을 아꼈습니다.");
