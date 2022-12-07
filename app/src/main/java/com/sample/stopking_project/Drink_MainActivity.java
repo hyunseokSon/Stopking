@@ -177,6 +177,7 @@ public class Drink_MainActivity extends AppCompatActivity {
         });
 
         dbReference.orderBy("stop_drink")
+                .whereNotEqualTo("stop_drink",null)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
