@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.19" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.19" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/analytics-48px.xml" value="0.2085" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/analytics.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/arrow_back_ios_new-48px.xml" value="0.2085" />
@@ -56,6 +58,8 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/trophy_bronze.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/trophy_silver.xml" value="0.1355" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable-v24/user.xml" value="0.1355" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable/auth.xml" value="0.1345" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable/star_silver.xml" value="0.1345" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/drawable/trophy_gold.xml" value="0.1" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/font/custom_font_family.xml" value="0.15416666666666667" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/font/font.xml" value="0.15416666666666667" />
@@ -72,7 +76,9 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_ranking.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register_drink.xml" value="0.125" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register_email.xml" value="0.12395833333333334" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register_smoke.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_register_smoke_email.xml" value="0.12395833333333334" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_setting.xml" value="0.125" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_smoke_help.xml" value="0.12760416666666666" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/activity_smoke_main.xml" value="0.26927083333333335" />
@@ -89,6 +95,7 @@
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_bottle.xml" value="0.26927083333333335" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_day.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/fragment_smoke_pack.xml" value="0.26927083333333335" />
+        <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/new_app_widget.xml" value="0.12708333333333333" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/smoke_recyclerview_item.xml" value="0.12760416666666666" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/smoking_day_user_list_data.xml" value="0.26927083333333335" />
         <entry key="..\:/AndroidStudio/StopkingTest/app/src/main/res/layout/smoking_pack_user_list_data.xml" value="0.26927083333333335" />

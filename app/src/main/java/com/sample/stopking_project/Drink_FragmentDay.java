@@ -122,7 +122,9 @@ public  class Drink_FragmentDay extends Fragment {
                     }
                 });
 
-        AggregateQuery countQuery = db.collection("users").count();
+        AggregateQuery countQuery = db.collection("users")
+                .whereNotEqualTo("stop_drink",null)
+                .count();
         countQuery.get(AggregateSource.SERVER).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 AggregateQuerySnapshot snapshot = task.getResult();
