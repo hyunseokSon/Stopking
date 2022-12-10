@@ -131,7 +131,7 @@ public class Smoke_Statistics extends AppCompatActivity implements ToolTipsManag
                 tooltipTextView.setText(Math.round(saveKcal) + " 칼로리를 참았습니다.");
                 userNameTitle1.setText(Html.fromHtml("<b>"+getName+"</b>"+" 님은"));
                 dayTitle.setText(Html.fromHtml("<b>"+str_StopDays+"일</b>"+ " 동안,"));
-                smokeFrequencyTitle.setText(Html.fromHtml("<b>"+(Math.round(smokeFrequency)+" 번</b>"+" 의 흡연를 쉬었습니다.")));
+                smokeFrequencyTitle.setText(Html.fromHtml("<b>"+(Math.round(smokeFrequency)+" 번</b>"+" 의 흡연을 쉬었습니다.")));
                 countPackTitle.setText(Html.fromHtml("<b>약 "+(Math.round(pack)+" 갑</b>" + "을 피우지 않았습니다.")));
                 saveTimeTitle.setText(Html.fromHtml("<b>"+(Math.round(saveTime)+" 분</b>" + " 을 아꼈습니다.")));
                 saveMoneyTitle.setText(Html.fromHtml("<b>"+(str_getSaveMoney +" 원</b>" +" 을 아꼈습니다.")));
@@ -178,7 +178,6 @@ public class Smoke_Statistics extends AppCompatActivity implements ToolTipsManag
                 }
                 else
                     cheerText.setText("티끌 모아 태산! \n목표까지 달려봐요!");
-
             }
         });
 
@@ -326,7 +325,7 @@ public class Smoke_Statistics extends AppCompatActivity implements ToolTipsManag
                         .putExtra("saveMoney",str_getSaveMoney)
                         .putExtra("pack",str_pack)
                         .putExtra("day",str_StopDays),
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE
         );
 
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
